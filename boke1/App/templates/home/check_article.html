@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <div style="margin-left: 300px;margin-top:100px">
+        <h3>题目：{{ article.title }}</h3>
+        <p style="width: 400px">内容：{{ article.context }}</p>
+        <p style="width: 150px">栏目：{{ article.my_classify }}</p>
+
+         {% for press in article.my_press %}
+         <p>
+            评论内容：{{ press.content }}
+        </p>
+        <p>
+            评论时间：{{ press.date }}
+        </p>
+       {% endfor %}
+       <a style="color: orange;margin-bottom: 20px;padding: 20px  ;background-color: #00a0e9" href="{{ url_for("blue.add_press",id=article.id) }}">添加评论</a>
+       <br>
+
+
+
+        <form action="{{ url_for("blue.index") }}">
+            <input style="margin-top: 50px;color: orange;width: 100px;height: 50px;background-color: #00a0e9" type="submit" value="返回首页">
+        </form>
+       <a href=""></a>
+   </div>
+</body>
+</html>
